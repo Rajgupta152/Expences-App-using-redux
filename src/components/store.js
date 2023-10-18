@@ -1,6 +1,7 @@
 import { createStore } from "redux";
 
 const inputValues = {
+    personName: '',
     itemName: '',
     itemPrice: '',
     itemDate: '',
@@ -10,6 +11,9 @@ const inputValues = {
 
 const reducer = (state = inputValues, action) => {
     switch(action.type){
+        case 'personName':
+            return{...state, personName: action.payload}
+
         case 'itemName':
             return{...state, itemName: action.payload}
          

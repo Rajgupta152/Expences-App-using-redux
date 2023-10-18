@@ -1,4 +1,11 @@
 
+export const updatePerson = (personName) => {
+    return {
+        type: 'personName',
+        payload: personName
+    }
+}
+
  export const updateItem = (itemName) => {
     return {
         type: 'itemName',

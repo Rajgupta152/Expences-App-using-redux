@@ -9,21 +9,25 @@ export const ExpencesData = () => {
         return totalPrice += +item.itemPrice
     })
     return(
-        <>
-        <Link to = '/RegistrationForm'><Button variant="contained">Add Expences</Button></Link>
-        <TableContainer style={{width: '60%', marginTop: '50px'}}>
+        <div className="table-wrapper">
+        <Link style={{float: 'left'}} to = '/RegistrationForm'><Button variant="contained">Add Expences</Button></Link>
+        <TableContainer style={{marginTop: '70px',border: "2px solid rgb(0, 42, 255", backgroundColor: 'rgba(28, 20, 28, 0.5)'}} >
             <Table variant = 'filled'>
-                <TableHead>
+                <TableHead >
                     <TableRow >
-                        <TableCell style={{fontSize: '22px', color: '#fff'}}>Expences Name</TableCell>
-                        <TableCell style={{fontSize: '22px', color: '#fff'}}>Expences Price</TableCell>
-                        <TableCell style={{fontSize: '22px', color: '#fff'}}>Expences Date</TableCell>
-                        <TableCell style={{fontSize: '22px', color: '#fff'}}>Expences Time</TableCell>
+                        <TableCell style={{fontSize: '20px', color: '#1976D2'}}>S. No.</TableCell>
+                        <TableCell style={{fontSize: '20px', color: '#1976D2'}}>Person Name</TableCell>
+                        <TableCell style={{fontSize: '20px', color: '#1976D2'}}>Expences Name</TableCell>
+                        <TableCell style={{fontSize: '20px', color: '#1976D2'}}>Expences Price</TableCell>
+                        <TableCell style={{fontSize: '20px', color: '#1976D2'}}>Expences Date</TableCell>
+                        <TableCell style={{fontSize: '20px', color: '#1976D2'}}>Expences Time</TableCell>
                     </TableRow>
                 </TableHead>
-                <TableBody>
-                    {data.expences.map((item) => (
+                <TableBody >
+                    {data.expences.map((item,index) => (
                         <TableRow key={item.id}>
+                            <TableCell style={{fontSize: '18px', color: '#fff'}}>{index + 1}</TableCell>
+                            <TableCell style={{fontSize: '18px', color: '#fff'}}>{item.personName}</TableCell>
                             <TableCell style={{fontSize: '18px', color: '#fff'}}>{item.itemName}</TableCell>
                             <TableCell style={{fontSize: '18px', color: '#fff'}}>{item.itemPrice + ' Rs/-'}</TableCell>
                             <TableCell style={{fontSize: '18px', color: '#fff'}}>{item.itemDate}</TableCell>
@@ -31,14 +35,14 @@ export const ExpencesData = () => {
                         </TableRow>
                     ))}
                 </TableBody>
-                <TableFooter>
-                    <TableRow>
-                        <TableCell colSpan={2} style={{fontSize: '22px', color: '#fff', textAlign: 'center'}} >Total</TableCell>
-                        <TableCell colSpan={2} style={{fontSize: '22px', color: '#fff', textAlign: 'center'}}>{totalPrice + ' Rs/-'}</TableCell>
+                <TableFooter >
+                    <TableRow >
+                        <TableCell colSpan={3} style={{fontSize: '20px', color: 'green', textAlign: 'center'}} >Total</TableCell>
+                        <TableCell colSpan={3} style={{fontSize: '20px', color: 'green', textAlign: 'center'}}>{totalPrice + ' Rs/-'}</TableCell>
                     </TableRow>
                 </TableFooter>
             </Table>
         </TableContainer>
-        </>
+        </div>
     )
 }
